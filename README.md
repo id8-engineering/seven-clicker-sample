@@ -7,8 +7,8 @@ The sample is built for mikroe_clicker_2 but can run on any board that has mikro
 
 ### Hardware requirement:
 
-- (Mikroe LTE IOT 7 CLICK)[https://www.mikroe.com/lte-iot-7-click]
-- (Mikore TEMP&HUM CLCIK)[https://www.mikroe.com/temp-hum-click]
+- [Mikroe LTE IOT 7 CLICK](https://www.mikroe.com/lte-iot-7-click)
+- [Mikore TEMP&HUM CLCIK](https://www.mikroe.com/temp-hum-click)
 
 ## Getting started:
 
