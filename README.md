@@ -1,16 +1,16 @@
-### End to end sample using LTE and AWS
+# End to end sample using LTE and AWS
 
-### Overview
+## Overview
 
 The sample is a end to end communication sample to test LTE to AWS.
 The sample is built for mikroe_clicker_2 but can run on any board that has mikroBUS socket.
 
-# Hardware requirement:
+### Hardware requirement:
 
 - (Mikroe LTE IOT 7 CLICK)[https://www.mikroe.com/lte-iot-7-click]
 - (Mikore TEMP&HUM CLCIK)[https://www.mikroe.com/temp-hum-click]
 
-### Getting started:
+## Getting started:
 
 Clone repo and cd into it:
 ´
