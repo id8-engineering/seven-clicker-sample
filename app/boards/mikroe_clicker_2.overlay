@@ -1,0 +1,15 @@
+/*
+ * SPDX-FileCopyrightText: 2026 ID8 Engineering AB
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&mikrobus_2_i2c {
+	status = "okay";
+
+	hts221@5f {
+		compatible = "st,hts221";
+		reg = <0x5f>;
+		status = "okay";
+	};
+};
