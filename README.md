@@ -13,17 +13,16 @@ The sample is built for mikroe_clicker_2 but can run on any board that has mikro
 ## Getting started:
 
 Clone repo and cd into it:
-´
-git clone git@github.com:id8-engineering/seven-clicker-sample.git \
-cd seven-clicker-sample
-´
+
+`git clone git@github.com:id8-engineering/seven-clicker-sample.git && cd seven-clicker-sample
+`
+
 Run:
-´
-west init -l .\
-west update
-´
+
+`west init -l . && west update
+`
+
 Build and flash application:
-´
-west build -p always -b mikroe_clicker_2 app \
-west flash
-´
+
+`west build -p always -b mikroe_clicker_2 app && west flash
+`
