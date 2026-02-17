@@ -1,28 +1,37 @@
-# End to end sample using LTE and AWS
+# Seven Clicker Sample
 
-## Overview
+This is an end-to-end Internet of Things (IoT) sample project which collects
+data from a temperature and humidty sensor, and publishes it to AWS IoT Core
+MQTT broker using mobile connectivity (LTE).
 
-The sample is a end to end communication sample to test LTE to AWS.
-The sample is built for mikroe_clicker_2 but can run on any board that has mikroBUS socket.
+The project is based based on [Zephyr Project](https://zephyrproject.org/) and
+hardware from [MIKROE](https://www.mikroe.com/).
 
-### Hardware requirement:
+## Hardware
 
-- [Mikroe LTE IOT 7 CLICK](https://www.mikroe.com/lte-iot-7-click)
-- [Mikore TEMP&HUM CLICK](https://www.mikroe.com/temp-hum-click)
+Hardware used in this project:
 
-## Getting started:
+* [J-Link PLUS Compact](https://shop.segger.com/debug-trace-probes/debug-probes/j-link/j-link-plus-compact)
+* [MIKROE - CLICKER FOR STM32](https://www.mikroe.com/clicker-2-stm32f4)
+* [MIKROE - LTE IOT 7 CLICK](https://www.mikroe.com/lte-iot-7-click)
+* [MIKROE - TEMP&HUM CLICK](https://www.mikroe.com/temp-hum-click)
 
-Clone repo and cd into it:
+You also need:
 
-`git clone git@github.com:id8-engineering/seven-clicker-sample.git && cd seven-clicker-sample
-`
+* Micro-B USB cable
+* SIM card with a data plan
+* J-Link PLUS Compact adapter for the
+  [CLICKER FOR STM32](https://www.mikroe.com/clicker-2-stm32f4) JTAG connector
 
-Run:
+## Build firmware
 
-`west init -l . && west update
-`
+Coming soon...
 
-Build and flash application:
+## Flash firmware
 
-`west build -p always -b mikroe_clicker_2 app && west flash
-`
+Coming soon...
+
+## Report issues
+
+If you run into problems, you can ask for help in our
+[issue tracker on GitHub](https://github.com/id8-engineering/seven-clicker-sample/issues).
