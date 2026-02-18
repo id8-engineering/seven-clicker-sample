@@ -1,0 +1,79 @@
+name: LGTM
+
+on:
+  workflow_run:
+    workflows:
+      - dco-check
+      - Conventional Commits
+    types: [completed]
+
+permissions:
+  actions: read
+  checks: read
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  lgtm:
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.pull_requests[0] != null
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment LGTM when all checks are green
+        uses: actions/github-script@450193c5abd4cdb17ba9f3ffcfe8f635c4bb6c2a
+        with:
+          script: |
+            const pr = context.payload.workflow_run.pull_requests[0];
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const sha = context.payload.workflow_run.head_sha;
+
+            const requiredWorkflows = new Set([
+              "dco-check",
+              "Conventional Commits",
+            ]);
+            const runs = await github.paginate(
+              github.rest.actions.listWorkflowRunsForRepo,
+              { owner, repo, head_sha: sha, per_page: 100 }
+            );
+
+            const latestByName = new Map();
+            for (const run of runs) {
+              if (!requiredWorkflows.has(run.name)) {
+                continue;
+              }
+              if (!latestByName.has(run.name)) {
+                latestByName.set(run.name, run);
+              }
+            }
+
+            const allGreen = Array.from(requiredWorkflows).every((name) => {
+              const run = latestByName.get(name);
+              return run && run.conclusion === "success";
+            });
+
+            if (!allGreen) {
+              core.info("Not all checks are green yet.");
+              return;
+            }
+
+            const marker = "<!-- lgtm-on-green -->";
+            const comments = await github.paginate(
+              github.rest.issues.listComments,
+              { owner, repo, issue_number: pr.number, per_page: 100 }
+            );
+
+            if (comments.some((c) => c.body && c.body.includes(marker))) {
+              core.info("LGTM comment already exists.");
+              return;
+            }
+
+            const body = `${marker}\nLGTM!`;
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: pr.number,
+              body,
+            });
