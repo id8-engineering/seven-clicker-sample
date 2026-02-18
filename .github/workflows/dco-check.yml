@@ -1,0 +1,18 @@
+name: dco-check
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  check_dco:
+    runs-on: ubuntu-latest
+    name: Check DCO
+    steps:
+      - name: Run dco-check
+        uses: christophebedard/dco-check@7b0205d25ead0f898e0b706b58227dd5fa7e3f55
+        with:
+          python-version: "3.14"
+          args: "--verbose"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
