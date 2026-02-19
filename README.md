@@ -23,6 +23,20 @@ You also need:
 * J-Link PLUS Compact adapter for the
   [CLICKER FOR STM32](https://www.mikroe.com/clicker-2-stm32f4) JTAG connector
 
+## Getting Started
+
+Before getting started, make sure you have a proper Zephyr development
+environment. Follow the official
+[Zephyr Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html).
+
+## Initialize project
+
+```
+west init -m https://github.com/id8-engineering/seven-clicker-sample --mr main my-workspace
+cd my-workspace
+west update
+```
+
 ## Build firmware
 
 Coming soon...
