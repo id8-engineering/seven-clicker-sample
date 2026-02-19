@@ -17,8 +17,19 @@ int read_sensor_parameters(const struct device *dev, struct sensor_value *temp,
 {
 	int ret;
 
-	if (dev == NULL || temp == NULL || hum == NULL) {
-		LOG_ERR("Invalid argument: dev=%p temp=%p hum=%p", dev, temp, hum);
+	if (dev == NULL) {
+		LOG_ERR("Device pointer is NULL");
+		return -EINVAL;
+	}
+
+	if (temp == NULL) {
+		LOG_ERR("Temp pointer is NULL");
+		return -EINVAL;
+	}
+
+	if (hum == NULL) {
+		LOG_ERR("Humidity pointer is NULL");
+		return -EINVAL;
 	}
 
 	ret = sensor_sample_fetch(dev);
