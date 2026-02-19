@@ -25,11 +25,15 @@ You also need:
 
 ## Build firmware
 
-Coming soon...
+```
+west build -p always -b mikroe_clicker_2
+```
 
 ## Flash firmware
 
-Coming soon...
+```
+west flash -r jlink
+```
 
 ## Report issues
 
