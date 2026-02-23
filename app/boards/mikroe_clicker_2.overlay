@@ -13,3 +13,27 @@
 		status = "okay";
 	};
 };
+
+/ {
+	aliases {
+		modem = &modem;
+		modem-uart = &mikrobus_uart;
+	};
+
+	chosen {
+		zephyr,modem-uart = &mikrobus_uart;
+		zephyr,code-partition = &flash0;
+	};
+};
+
+&mikrobus_uart {
+	current-speed = <115200>;
+	status = "okay";
+
+	modem: modem {
+		status = "okay";
+		compatible = "u-blox,sara-r4";
+		mdm-power-gpios = <&mikrobus_header 0 (GPIO_OPEN_SOURCE | GPIO_ACTIVE_HIGH)>;
+		mdm-reset-gpios = <&mikrobus_header 1 (GPIO_OPEN_DRAIN | GPIO_ACTIVE_LOW)>;
+	};
+};

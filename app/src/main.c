@@ -9,6 +9,7 @@
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 
+#include "modem.h"
 #include "sensor.h"
 
 #define SENSOR_POLL_INTERVAL_MS 2000
@@ -20,6 +21,11 @@ static struct sensor_value hum;
 
 int main(void)
 {
+	int ret = modem_connect_and_wait(K_SECONDS(120), K_SECONDS(20));
+	if (ret != 0) {
+		LOG_ERR("Modem init failed: %d", ret);
+		return ret;
+	}
 	const struct device *const dev = DEVICE_DT_GET_ONE(st_hts221);
 
 	if (!device_is_ready(dev)) {
