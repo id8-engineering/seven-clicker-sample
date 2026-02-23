@@ -86,7 +86,7 @@ cd seven-clicker-sample
 ### Build firmware
 
 ```
-west build -p always -b mikroe_clicker_2
+west build -p always -b mikroe_clicker_2 app/
 ```
 
 ### Flash firmware
