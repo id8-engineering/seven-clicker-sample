@@ -35,16 +35,10 @@ environment:
 
 ### Setup project
 
-Initialize workspace:
+Create workspace and change in to it:
 
 ```
-west init -m https://github.com/id8-engineering/seven-clicker-sample --mr main my-workspace
-```
-
-Change directory:
-
-```
-cd my-workspace
+mkdir -p ~/src/seven-clicker-sample-workspace && cd ~/src/seven-clicker-sample-workspace
 ```
 
 Create Python virtual environment:
@@ -63,6 +57,18 @@ Install west:
 
 ```
 pip install west
+```
+
+Initialize workspace:
+
+```
+west init -m https://github.com/id8-engineering/seven-clicker-sample --mr main .
+```
+
+Change directory:
+
+```
+cd seven-clicker-sample
 ```
 
 Fetch and checkout sources:
