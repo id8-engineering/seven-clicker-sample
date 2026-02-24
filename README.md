@@ -25,25 +25,71 @@ You also need:
 
 ## Getting Started
 
-Before getting started, make sure you have a proper Zephyr development
-environment. Follow the official
-[Zephyr Getting Started Guide](https://docs.zephyrproject.org/latest/getting_started/index.html).
+### Prerequisites
 
-## Initialize project
+Before getting started, make sure you have a proper Zephyr development
+environment:
+
+* [Zephyr - Install Linux Host Dependencies](https://docs.zephyrproject.org/latest/develop/getting_started/installation_linux.html#installation-linux)
+* [Zephyr - Install Zephyr SDK](https://docs.zephyrproject.org/latest/develop/toolchains/zephyr_sdk.html#toolchain-zephyr-sdk)
+
+### Setup project
+
+Initialize workspace:
 
 ```
 west init -m https://github.com/id8-engineering/seven-clicker-sample --mr main my-workspace
+```
+
+Change directory:
+
+```
 cd my-workspace
+```
+
+Create Python virtual environment:
+
+```
+python -m venv .venv
+```
+
+Active Python virtual environment:
+
+```
+. .venv/bin/activate
+```
+
+Install west:
+
+```
+pip install west
+```
+
+Fetch and checkout sources:
+
+```
 west update
 ```
 
-## Build firmware
+Install Python dependencies:
 
 ```
-west build -p always -b mikroe_clicker_2
+west packages pip --install
 ```
 
-## Flash firmware
+Change directory:
+
+```
+cd seven-clicker-sample
+```
+
+### Build firmware
+
+```
+west build -p always -b mikroe_clicker_2 app/
+```
+
+### Flash firmware
 
 ```
 west flash -r jlink
