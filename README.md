@@ -86,7 +86,7 @@ cd seven-clicker-sample
 ### Build firmware
 
 ```
-west build -p always -b mikroe_clicker_2 app/
+west build -p always -b mikroe_clicker_2 app -DCONFIG_MODEM_CELLULAR_APN=\"your_apn\"
 ```
 
 ### Flash firmware
