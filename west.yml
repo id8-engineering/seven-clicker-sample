@@ -16,6 +16,7 @@ manifest:
           - cmsis_6
           - hal_st
           - hal_stm32
+          - mbedtls
 
   self:
     path: seven-clicker-sample
