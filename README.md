@@ -23,6 +23,10 @@ You also need:
 * J-Link PLUS Compact adapter for the
   [CLICKER FOR STM32](https://www.mikroe.com/clicker-2-stm32f4) JTAG connector
 
+<p align="center">
+  <img src="assets/seven-clicker-hardware.jpg" alt="Seven clicker hardware" width="50%" />
+</p>
+
 ## Getting Started
 
 ### Prerequisites
