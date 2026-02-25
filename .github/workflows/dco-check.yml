@@ -13,6 +13,6 @@ jobs:
         uses: christophebedard/dco-check@7b0205d25ead0f898e0b706b58227dd5fa7e3f55
         with:
           python-version: "3.14"
-          args: "--verbose"
+          args: "--verbose --exclude-pattern dependabot\\[bot\\]@users\\.noreply\\.github\\.com"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
