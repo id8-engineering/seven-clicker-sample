@@ -87,11 +87,6 @@ Install Python dependencies:
 west packages pip --install
 ```
 
-Change directory:
-
-```
-cd seven-clicker-sample
-```
 
 ### Build firmware
 
