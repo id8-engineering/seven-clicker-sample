@@ -35,4 +35,5 @@ jobs:
       - name: Build firmware
         working-directory: seven-clicker-sample
         shell: bash
-        run: west build -p always -b mikroe_clicker_2 app
+        run: |
+          west build -p always -b mikroe_clicker_2 app -- -DUSE_DUMMY_CREDS=ON

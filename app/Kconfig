@@ -1,0 +1,39 @@
+# SPDX-FileCopyrightText: 2026 ID8 Engineering AB
+# SPDX-License-Identifier: Apache-2.0
+
+menu "AWS"
+
+config AWS_ENDPOINT
+	string "AWS endpoint"
+	default ""
+
+config AWS_MQTT_PORT
+	int "AWS MQTT port"
+	default 8883
+
+config AWS_THING_NAME
+	string "AWS thing name"
+	default "myThingName"
+
+config AWS_PUBLISH_TOPIC
+	string "AWS publish topic"
+	default "myThingName/data"
+
+config AWS_QOS
+	int "AWS QoS"
+	default 0
+	range 0 1
+
+config AWS_EXPONENTIAL_BACKOFF
+	bool "AWS exponential backoff"
+	default y
+
+endmenu
+
+menu "Zephyr"
+source "Kconfig.zephyr"
+endmenu
+
+module = APP
+module-str = APP
+source "subsys/logging/Kconfig.template.log_config"
