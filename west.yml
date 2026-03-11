@@ -5,12 +5,12 @@ manifest:
 
   remotes:
     - name: zephyrproject-rtos
-      url-base: https://github.com/Dexter9532
+      url-base: https://github.com/zephyrproject-rtos
 
   projects:
     - name: zephyr
       remote: zephyrproject-rtos
-      revision: main
+      revision: 8b9ade18ac6515114c3ef24cb067fb9aa94a7c63 # Use hash until needed changes in zephyr are on a tag
       import:
         name-allowlist:
           - cmsis_6
