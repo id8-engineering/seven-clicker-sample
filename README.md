@@ -130,3 +130,12 @@ west flash -r jlink
 
 If you run into problems, you can ask for help in our
 [issue tracker on GitHub](https://github.com/id8-engineering/seven-clicker-sample/issues).
+
+## Credits
+
+This project was originally developed as an internship assignment by
+[@Dexter9532](https://github.com/Dexter9532), with mentorship from
+[@mirzak](https://github.com/mirzak) and
+[@id8-engineering](https://github.com/id8-engineering/). It represents an early
+milestone in the development of Seven, a rapid‑prototyping platform for cellular
+, resource constrained IoT devices.
