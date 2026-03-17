@@ -57,56 +57,56 @@ You also need:
 
 Create workspace and change in to it:
 
-```
+```sh
 mkdir -p ~/src/seven-clicker-sample-workspace && cd ~/src/seven-clicker-sample-workspace
 ```
 
 Create Python virtual environment:
 
-```
+```sh
 python -m venv .venv
 ```
 
 Active Python virtual environment:
 
-```
+```sh
 . .venv/bin/activate
 ```
 
 Install west:
 
-```
+```sh
 pip install west
 ```
 
 Initialize workspace:
 
-```
+```sh
 west init -m https://github.com/id8-engineering/seven-clicker-sample --mr main .
 ```
 
 Change directory:
 
-```
+```sh
 cd seven-clicker-sample
 ```
 
 Fetch and checkout sources:
 
-```
+```sh
 west update
 ```
 
 Install Python dependencies:
 
-```
+```sh
 west packages pip --install
 ```
 
 
 ### Build firmware
 
-```
+```sh
 west build -p always -b mikroe_clicker_2 app \
     -DCONFIG_MODEM_CELLULAR_APN=\"your_apn\" \
     -DCONFIG_AWS_ENDPOINT=\"your-iot-endpoint-ats.iot.your-region.amazonaws.com\"
@@ -114,7 +114,7 @@ west build -p always -b mikroe_clicker_2 app \
 
 ### Flash firmware
 
-```
+```sh
 west flash -r jlink
 ```
 
