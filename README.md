@@ -40,6 +40,19 @@ environment:
 * [Zephyr - Install Linux Host Dependencies](https://docs.zephyrproject.org/latest/develop/getting_started/installation_linux.html#installation-linux)
 * [Zephyr - Install Zephyr SDK](https://docs.zephyrproject.org/latest/develop/toolchains/zephyr_sdk.html#toolchain-zephyr-sdk)
 
+You also need:
+
+* An AWS account with access to AWS IoT Core
+  * default thing name is `myThingName` (adjust with `AWS_THING_NAME` Kconfig option)
+  * default MQTT topic is `myThingName/data` (adjust with `AWS_PUBLISH_TOPIC` Kconfig option)
+
+* AWS credentials and necessary information
+
+  Register a thing in AWS IoT Core and download the certificate and private key.
+  Copy these files to the [app/src/creds](app/src/creds) directory.
+  Run the [app/src/creds/convert_keys.py](app/src/creds/convert_keys.py) script, which
+  will generate files `ca.c`, `cert.c` and `key.c`.
+
 ### Setup project
 
 Create workspace and change in to it:
