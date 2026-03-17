@@ -7,6 +7,13 @@ MQTT broker using mobile connectivity (LTE).
 The project is based on [Zephyr Project](https://zephyrproject.org/) and
 hardware from [MIKROE](https://www.mikroe.com/).
 
+The application source code is largely based on the following Zephyr Project
+samples:
+
+* [AWS IoT Core MQTT](https://docs.zephyrproject.org/latest/samples/net/cloud/aws_iot_mqtt/README.html)
+* [Cellular modem](https://docs.zephyrproject.org/latest/samples/net/cellular_modem/README.html)
+* [HTS221 Temperature and Humidity Monitor](https://docs.zephyrproject.org/latest/samples/sensor/hts221/README.html)
+
 The project is not intended to be a complete reference design for a commercial
 product, but rather a source of inspiration.
 
