@@ -2,7 +2,7 @@
 
 This is an end-to-end Internet of Things (IoT) sample project which collects
 data from a temperature and humidity sensor, and publishes it to AWS IoT Core
-MQTT broker using mobile connectivity (LTE).
+MQTT broker using cellular connectivity (LTE).
 
 The project is based on [Zephyr Project](https://zephyrproject.org/) and
 hardware from [MIKROE](https://www.mikroe.com/).
