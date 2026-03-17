@@ -18,6 +18,7 @@ Hardware used in this project:
 * [MIKROE - CLICKER FOR STM32](https://www.mikroe.com/clicker-2-stm32f4)
 * [MIKROE - LTE IOT 7 CLICK](https://www.mikroe.com/lte-iot-7-click)
 * [MIKROE - TEMP&HUM CLICK](https://www.mikroe.com/temp-hum-click)
+* [YB0014AA 4G/GNSS L1 3-in-1 screw mount combo external antenna](https://www.quectel.com/product/yb0014aa-lte-gnss-screw-mount-combo-antenna/)
 
 You also need:
 
