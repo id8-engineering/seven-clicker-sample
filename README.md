@@ -7,6 +7,9 @@ MQTT broker using mobile connectivity (LTE).
 The project is based on [Zephyr Project](https://zephyrproject.org/) and
 hardware from [MIKROE](https://www.mikroe.com/).
 
+The project is not intended to be a complete reference design for a commercial
+product, but rather a source of inspiration.
+
 ## Hardware
 
 Hardware used in this project:
