@@ -2,10 +2,20 @@
 
 This is an end-to-end Internet of Things (IoT) sample project which collects
 data from a temperature and humidity sensor, and publishes it to AWS IoT Core
-MQTT broker using mobile connectivity (LTE).
+MQTT broker using cellular connectivity (LTE).
 
 The project is based on [Zephyr Project](https://zephyrproject.org/) and
 hardware from [MIKROE](https://www.mikroe.com/).
+
+The application source code is largely based on the following Zephyr Project
+samples:
+
+* [AWS IoT Core MQTT](https://docs.zephyrproject.org/latest/samples/net/cloud/aws_iot_mqtt/README.html)
+* [Cellular modem](https://docs.zephyrproject.org/latest/samples/net/cellular_modem/README.html)
+* [HTS221 Temperature and Humidity Monitor](https://docs.zephyrproject.org/latest/samples/sensor/hts221/README.html)
+
+The project is not intended to be a complete reference design for a commercial
+product, but rather a source of inspiration.
 
 ## Hardware
 
@@ -15,6 +25,7 @@ Hardware used in this project:
 * [MIKROE - CLICKER FOR STM32](https://www.mikroe.com/clicker-2-stm32f4)
 * [MIKROE - LTE IOT 7 CLICK](https://www.mikroe.com/lte-iot-7-click)
 * [MIKROE - TEMP&HUM CLICK](https://www.mikroe.com/temp-hum-click)
+* [YB0014AA 4G/GNSS L1 3-in-1 screw mount combo external antenna](https://www.quectel.com/product/yb0014aa-lte-gnss-screw-mount-combo-antenna/)
 
 You also need:
 
@@ -37,60 +48,73 @@ environment:
 * [Zephyr - Install Linux Host Dependencies](https://docs.zephyrproject.org/latest/develop/getting_started/installation_linux.html#installation-linux)
 * [Zephyr - Install Zephyr SDK](https://docs.zephyrproject.org/latest/develop/toolchains/zephyr_sdk.html#toolchain-zephyr-sdk)
 
+You also need:
+
+* An AWS account with access to AWS IoT Core
+  * default thing name is `myThingName` (adjust with `AWS_THING_NAME` Kconfig option)
+  * default MQTT topic is `myThingName/data` (adjust with `AWS_PUBLISH_TOPIC` Kconfig option)
+
+* AWS credentials and necessary information
+
+  Register a thing in AWS IoT Core and download the certificate and private key.
+  Copy these files to the [app/src/creds](app/src/creds) directory.
+  Run the [app/src/creds/convert_keys.py](app/src/creds/convert_keys.py) script, which
+  will generate files `ca.c`, `cert.c` and `key.c`.
+
 ### Setup project
 
 Create workspace and change in to it:
 
-```
+```sh
 mkdir -p ~/src/seven-clicker-sample-workspace && cd ~/src/seven-clicker-sample-workspace
 ```
 
 Create Python virtual environment:
 
-```
+```sh
 python -m venv .venv
 ```
 
 Active Python virtual environment:
 
-```
+```sh
 . .venv/bin/activate
 ```
 
 Install west:
 
-```
+```sh
 pip install west
 ```
 
 Initialize workspace:
 
-```
+```sh
 west init -m https://github.com/id8-engineering/seven-clicker-sample --mr main .
 ```
 
 Change directory:
 
-```
+```sh
 cd seven-clicker-sample
 ```
 
 Fetch and checkout sources:
 
-```
+```sh
 west update
 ```
 
 Install Python dependencies:
 
-```
+```sh
 west packages pip --install
 ```
 
 
 ### Build firmware
 
-```
+```sh
 west build -p always -b mikroe_clicker_2 app \
     -DCONFIG_MODEM_CELLULAR_APN=\"your_apn\" \
     -DCONFIG_AWS_ENDPOINT=\"your-iot-endpoint-ats.iot.your-region.amazonaws.com\"
@@ -98,7 +122,7 @@ west build -p always -b mikroe_clicker_2 app \
 
 ### Flash firmware
 
-```
+```sh
 west flash -r jlink
 ```
 
@@ -106,3 +130,12 @@ west flash -r jlink
 
 If you run into problems, you can ask for help in our
 [issue tracker on GitHub](https://github.com/id8-engineering/seven-clicker-sample/issues).
+
+## Credits
+
+This project was originally developed as an internship assignment by
+[@Dexter9532](https://github.com/Dexter9532), with mentorship from
+[@mirzak](https://github.com/mirzak) and
+[@id8-engineering](https://github.com/id8-engineering/). It represents an early
+milestone in the development of Seven, a rapid‑prototyping platform for cellular
+, resource constrained IoT devices.
