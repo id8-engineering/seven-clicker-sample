@@ -17,6 +17,13 @@ manifest:
           - hal_st
           - hal_stm32
           - mbedtls
+          - mcuboot
+
+    - name: mender-mcu
+      url: https://github.com/mendersoftware/mender-mcu
+      revision: main
+      path: modules/mender-mcu
+      import: true
 
   self:
     path: seven-clicker-sample
