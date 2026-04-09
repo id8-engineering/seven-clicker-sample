@@ -22,6 +22,6 @@ else()
   set(creds "src/creds/ca.c" "src/creds/key.c" "src/creds/cert.c")
 endif()
 
-set(helpers "src/sensor.c" "src/modem.c" "src/aws.c")
+set(helpers "src/sensor.c" "src/modem.c" "src/aws.c" "src/mender.c")
 
 target_sources(app PRIVATE src/main.c ${helpers} ${creds})

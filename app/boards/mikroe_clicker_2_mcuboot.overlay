@@ -4,25 +4,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-&mikrobus_2_i2c {
-	status = "okay";
-
-	hts221@5f {
-		compatible = "st,hts221";
-		reg = <0x5f>;
-		status = "okay";
-	};
-};
-
 / {
-	aliases {
-		modem = &modem;
-		modem-uart = &mikrobus_uart;
-	};
-
 	chosen {
-		zephyr,modem-uart = &mikrobus_uart;
-		zephyr,code-partition = &slot0_partition;
+		zephyr,code-partition = &boot_partition;
 	};
 };
 
@@ -51,17 +35,5 @@
 			label = "mender";
 			reg = <0x000e0000 0x00020000>;
 		};
-	};
-};
-
-&mikrobus_uart {
-	current-speed = <115200>;
-	status = "okay";
-
-	modem: modem {
-		status = "okay";
-		compatible = "u-blox,sara-r4";
-		mdm-power-gpios = <&mikrobus_header 0 (GPIO_OPEN_SOURCE | GPIO_ACTIVE_HIGH)>;
-		mdm-reset-gpios = <&mikrobus_header 1 (GPIO_OPEN_DRAIN | GPIO_ACTIVE_LOW)>;
 	};
 };
