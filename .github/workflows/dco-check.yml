@@ -10,7 +10,7 @@ jobs:
     name: Check DCO
     steps:
       - name: Run dco-check
-        uses: christophebedard/dco-check@7b0205d25ead0f898e0b706b58227dd5fa7e3f55
+        uses: christophebedard/dco-check@ec8bfc43106afe98b323ace9133650df10497e12
         with:
           python-version: "3.14"
           args: "--verbose --exclude-pattern .*dependabot.*@users[.]noreply[.]github[.]com"
