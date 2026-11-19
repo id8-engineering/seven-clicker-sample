@@ -10,6 +10,7 @@
 #include <zephyr/net/sntp.h>
 
 #include "aws.h"
+#include "mender.h"
 #include "modem.h"
 #include "sensor.h"
 
@@ -70,6 +71,11 @@ int main(void)
 	if (!device_is_ready(dev)) {
 		LOG_ERR("sensor: device not ready");
 		return -ENODEV;
+	}
+	ret = mender_start();
+	if (ret < 0) {
+		LOG_ERR("Mender start failed: %d", ret);
+		return ret;
 	}
 	ret = aws_init();
 	if (ret < 0) {
